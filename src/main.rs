@@ -27,7 +27,7 @@ mod my_instants;
 
 use channels_joined_cache::GuildsJoinedCache;
 
-const TOKEN: &str = "ODM5Njk5MjQ2MTk3ODk5Mjk0.YJNc3Q.jAF51HAxlNTac43oIc7KRvVo0p4";
+const TOKEN: &str = "SOME_DISCORD_BOT_TOKEN";
 
 struct Handler {
     guilds_cache: Arc<Mutex<GuildsJoinedCache>>,
