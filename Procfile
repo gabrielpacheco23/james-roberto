@@ -1,1 +1,1 @@
-web: ./target/release/james-roberto
+release: ./target/release/james-roberto
