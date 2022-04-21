@@ -3,8 +3,8 @@ WORKDIR /james-roberto
 COPY . .
 RUN cargo install --path .
 
-FROM gliderlabs/alpine:3.3
-RUN apk add --update-cache libopus-dev
+FROM ubuntu:20.04
+RUN apt-get update && apt-get install libopus-dev libopus0 opus-tools
 COPY --from=builder /usr/local/cargo/bin/james-roberto /usr/local/bin/james-roberto
 CMD ["james-roberto"]
 
