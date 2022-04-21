@@ -3,9 +3,8 @@ WORKDIR /james-roberto
 COPY . .
 RUN cargo install --path .
 
-FROM debian:buster-slim
-RUN apt-get update && rm -rf /var/lib/apt/lists/*
-RUN apt-get install libopus0 libopus-dev opus-tools
+FROM gliderlabs/alpine:3.3
+RUN apk add --update-cache libopus-dev
 COPY --from=builder /usr/local/cargo/bin/james-roberto /usr/local/bin/james-roberto
 CMD ["james-roberto"]
 
