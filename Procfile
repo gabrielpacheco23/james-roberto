@@ -1,1 +1,1 @@
-web: ./target/release/james-roberto
+worker: ./target/release/james-roberto
