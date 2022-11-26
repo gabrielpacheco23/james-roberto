@@ -27,7 +27,7 @@ mod my_instants;
 
 use channels_joined_cache::GuildsJoinedCache;
 
-const TOKEN: &str = "ODM5Njk5MjQ2MTk3ODk5Mjk0.YJNc3Q.L6jn_nGbabS6Wv6d3-5rI3Xpq3s";
+// const TOKEN: &str = "ODM5Njk5MjQ2MTk3ODk5Mjk0.YJNc3Q.L6jn_nGbabS6Wv6d3-5rI3Xpq3s";
 
 struct Handler {
     guilds_cache: Arc<Mutex<GuildsJoinedCache>>,
@@ -88,8 +88,10 @@ async fn main() {
         .group(&GENERAL_GROUP);
 
     // let channels_cached = Arc::new(Mutex::new(ChannelsJoinedCache::new()));
+    
+    let token = std::env::var(BOT_TOKEN).unwrap();
 
-    let mut client = Client::builder(&TOKEN)
+    let mut client = Client::builder(&token)
         .event_handler(Handler {
             guilds_cache: Arc::new(Mutex::new(GuildsJoinedCache::new())),
             // joined_voice: Arc::new(AtomicBool::new(false)),
