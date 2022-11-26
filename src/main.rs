@@ -210,7 +210,7 @@ async fn play_with_manager(
             Ok(source) => source,
             Err(why) => {
                 println!("Error starting audio source: {:?}", why);
-                check_msg(msg.channel_id.say(&ctx.http, "").await);
+                check_msg(msg.channel_id.say(&ctx.http, "Internal Server Error").await);
                 return Err(Box::new(VoiceError));
             }
         };
@@ -253,7 +253,7 @@ async fn play(ctx: &Context, msg: &Message, url: &str) -> CommandResult {
             Ok(source) => source,
             Err(why) => {
                 println!("Error starting audio source: {:?}", why);
-                check_msg(msg.channel_id.say(&ctx.http, "").await);
+                check_msg(msg.channel_id.say(&ctx.http, "Internal Server Error").await);
                 return Err(Box::new(VoiceError));
             }
         };
