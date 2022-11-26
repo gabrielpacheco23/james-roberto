@@ -89,7 +89,7 @@ async fn main() {
 
     // let channels_cached = Arc::new(Mutex::new(ChannelsJoinedCache::new()));
     
-    let token = std::env::var(BOT_TOKEN).unwrap();
+    let token = std::env::var("BOT_TOKEN").unwrap();
 
     let mut client = Client::builder(&token)
         .event_handler(Handler {
